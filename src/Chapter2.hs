@@ -1,4 +1,4 @@
-module MyLib (someFunc, exercise_2_1_a, exercise_2_1_b, exercise_2_1_c, exercise_2_1_d) where
+module Chapter2 (someFunc, exercise_2_1_a, exercise_2_1_b, exercise_2_1_c, exercise_2_1_d) where
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
