@@ -15,4 +15,4 @@ reverse2 list =
   else
     if null $ tail $ tail list
     then (head $ tail list) : head list : []
-    else ((head (reverse2 (tail list))) : (tail (reverse2 (tail list))))
+    else ((head (reverse2 (tail list))) : (tail (reverse2 (tail list)))) +++ ((head list) : [])
