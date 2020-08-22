@@ -35,6 +35,12 @@ main = do
   test ( "firstOrEmpty empty"
        , (firstOrEmpty []) == "empty"
        )
+  test ( "+++ empty"
+       , ([] +++ ["abc"]) == ["abc"]
+       )
+  test ( "+++ two lists"
+       , (["abc"] +++ ["de"]) == ["abc", "de"]
+       )
 
 test (d, b) =
   if b then
