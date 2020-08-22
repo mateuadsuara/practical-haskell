@@ -18,6 +18,7 @@ extra-source-files:  CHANGELOG.md
 
 library
   exposed-modules:     Chapter2
+                     , Chapter2.SimpleFunctions
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.13 && <4.14

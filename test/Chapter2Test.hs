@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Chapter2
+import Chapter2.SimpleFunctions
 
 main :: IO ()
 main = do
@@ -27,6 +28,12 @@ main = do
        )
   test ( "2.1.d"
        , (Chapter2.exercise_2_1_d ["abc", "de"]) == "abcde"
+       )
+  test ( "firstOrEmpty first"
+       , (firstOrEmpty ["abc"]) == "abc"
+       )
+  test ( "firstOrEmpty empty"
+       , (firstOrEmpty []) == "empty"
        )
 
 test (d, b) =
