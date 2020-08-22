@@ -1,5 +1,7 @@
 module Main (main) where
 
+import System.Exit
+
 import Chapter2
 import Chapter2.SimpleFunctions
 
@@ -38,12 +40,36 @@ main = do
   test ( "+++ empty"
        , ([] +++ ["abc"]) == ["abc"]
        )
-  test ( "+++ two lists"
+  test ( "+++ two"
        , (["abc"] +++ ["de"]) == ["abc", "de"]
+       )
+  tsEq ( "reverse2 empty"
+       , (reverse2 [])
+       , []
+       )
+  tsEq ( "reverse2 one"
+       , (reverse2 ["abc"])
+       , ["abc"]
+       )
+  tsEq ( "reverse2 two"
+       , (reverse2 ["abc", "de"])
+       , ["de", "abc"]
+       )
+  tsEq ( "reverse2 three"
+       , (reverse2 ["abc", "de", "fg"])
+       , ["fg", "de", "abc"]
        )
 
 test (d, b) =
-  if b then
-    putStrLn $ "PASS " ++ d
-  else
+  if b
+  then putStrLn $ "PASS " ++ d
+  else do
     putStrLn $ "FAIL " ++ d
+    exitFailure
+
+tsEq (d, r, e) =
+  if r == e
+  then putStrLn $ "PASS " ++ d
+  else do
+    putStrLn $ "FAIL " ++ d ++ ", got: " ++ (show r)
+    exitFailure
