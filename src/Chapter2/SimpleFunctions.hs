@@ -10,9 +10,6 @@ list1 +++ list2 =
 
 reverse2 :: [[Char]] -> [[Char]]
 reverse2 list =
-  if null list || (null $ tail list)
-  then list
-  else
-    if null $ tail $ tail list
-    then (head $ tail list) : head list : []
-    else ((head (reverse2 (tail list))) : (tail (reverse2 (tail list)))) +++ ((head list) : [])
+  if null list
+  then []
+  else reverse2 (tail list) +++ [head list]
