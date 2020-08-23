@@ -4,6 +4,7 @@ import System.Exit
 
 import Chapter2
 import Chapter2.SimpleFunctions
+import Store.Client
 import Store.TimeMachine
 
 main :: IO ()
@@ -117,6 +118,11 @@ main = do
        , maxmin (-999, 999) [2, 1, 103, 8, 75, -300]
        , (==)
        , (103, -300)
+       )
+  test ( "show client"
+       , show $ Individual (Person "Jack" "Smith" Male)
+       , (==)
+       , "Individual (Person \"Jack\" \"Smith\" Male)"
        )
   test ( "show time machine"
        , show $ TimeMachine (Manufacturer "Tesla") (Model 3) (Name "The E in SEXY") (Future) (Price 35000.00)

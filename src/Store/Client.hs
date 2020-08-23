@@ -1,4 +1,4 @@
-module Store (Client) where
+module Store.Client (Client (..), Person (..), Gender (..)) where
 
 data Client = GovOrg     String
             | Company    String Integer String String

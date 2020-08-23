@@ -17,7 +17,7 @@ build-type:          Simple
 extra-source-files:  CHANGELOG.md
 
 library
-  exposed-modules:     Store
+  exposed-modules:     Store.Client
                      , Store.TimeMachine
                      , Chapter2
                      , Chapter2.SimpleFunctions
