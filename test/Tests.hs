@@ -124,6 +124,21 @@ main = do
        , (==)
        , "Individual (Person \"Jack\" \"Smith\" Male)"
        )
+  test ( "clientName GovOrg"
+       , clientName $ GovOrg "organisation"
+       , (==)
+       , "organisation"
+       )
+  test ( "clientName Company"
+       , clientName $ Company "Comp Limited" 1 (Person "Jane" "Doe" Female) "Resp"
+       , (==)
+       , "Comp Limited"
+       )
+  test ( "clientName Individual"
+       , clientName $ Individual (Person "Jack" "Smith" Male)
+       , (==)
+       , "Jack Smith"
+       )
   test ( "show time machine"
        , show $ TimeMachine (Manufacturer "Tesla") (Model 3) (Name "The E in SEXY") (Future) (Price 35000.00)
        , (==)
