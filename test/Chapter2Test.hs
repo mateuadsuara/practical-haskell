@@ -92,6 +92,31 @@ main = do
        , (==)
        , ["9", "8", "7", "6", "5", "4", "3", "2", "1"]
        )
+  test ( "maxmin empty"
+       , maxmin (0, 0) []
+       , (==)
+       , (0, 0)
+       )
+  test ( "maxmin one a"
+       , maxmin (0, 2) [1]
+       , (==)
+       , (1, 1)
+       )
+  test ( "maxmin one b"
+       , maxmin (2, 0) [1]
+       , (==)
+       , (2, 0)
+       )
+  test ( "maxmin two"
+       , maxmin (-999, 999) [2, 1]
+       , (==)
+       , (2, 1)
+       )
+  test ( "maxmin many"
+       , maxmin (-999, 999) [2, 1, 103, 8, 75, -300]
+       , (==)
+       , (103, -300)
+       )
 
 test (d, r, f, e) =
   if f r e
