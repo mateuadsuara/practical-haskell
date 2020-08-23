@@ -17,6 +17,8 @@ reverse2 list =
 maxmin (max, min) list =
   if null list
   then (max, min)
-  else maxmin ( if (head list) > max then (head list) else max
-              , if (head list) < min then (head list) else min)
-              (tail list)
+  else let h = head list
+       in maxmin ( if h > max then h else max
+                 , if h < min then h else min
+                 )
+                 (tail list)
