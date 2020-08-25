@@ -144,6 +144,44 @@ main = do
        , (==)
        , "TimeMachine (Manufacturer \"Tesla\") (Model 3) (Name \"The E in SEXY\") Future (Price 35000.0)"
        )
+  test ( "countGenders empty"
+       , countGenders []
+       , (==)
+       , (0, 0, 0)
+       )
+  test ( "countGenders one male"
+       , countGenders [(Individual (Person "A" "B" Male))]
+       , (==)
+       , (1, 0, 0)
+       )
+  test ( "countGenders one female"
+       , countGenders [(Individual (Person "A" "B" Female))]
+       , (==)
+       , (0, 1, 0)
+       )
+  test ( "countGenders one unknown"
+       , countGenders [(Individual (Person "A" "B" Unknown))]
+       , (==)
+       , (0, 0, 1)
+       )
+  test ( "countGenders GovOrg"
+       , countGenders [(GovOrg "A")]
+       , (==)
+       , (0, 0, 0)
+       )
+  test ( "countGenders Company"
+       , countGenders [(Company "A" 1 (Person "A" "B" Male) "B")]
+       , (==)
+       , (0, 0, 0)
+       )
+  test ( "countGenders one of each"
+       , countGenders [ (Individual (Person "A" "B" Male))
+                      , (Individual (Person "A" "B" Female))
+                      , (Individual (Person "A" "B" Unknown))
+                      ]
+       , (==)
+       , (1, 1, 1)
+       )
 
 test (d, r, f, e) =
   if f r e
