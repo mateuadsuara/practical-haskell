@@ -182,6 +182,15 @@ main = do
        , (==)
        , (1, 1, 1)
        )
+  test ( "applyPriceMultiplier 50% to two TimeMachines"
+       , applyPriceMultiplier 0.5 [ TimeMachine (Manufacturer "Tesla") (Model 3) (Name "The E in SEXY") (Future) (Price 35000.00)
+                                  , TimeMachine (Manufacturer "Tesla") (Model 1) (Name "The mass market") (Future) (Price 15000.00)
+                                  ]
+       , (==)
+       , [ TimeMachine (Manufacturer "Tesla") (Model 3) (Name "The E in SEXY") (Future) (Price 17500.00)
+         , TimeMachine (Manufacturer "Tesla") (Model 1) (Name "The mass market") (Future) (Price 7500.00)
+         ]
+       )
 
 test (d, r, f, e) =
   if f r e
