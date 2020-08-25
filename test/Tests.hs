@@ -191,6 +191,26 @@ main = do
          , TimeMachine (Manufacturer "Tesla") (Model 1) (Name "The mass market") (Future) (Price 7500.00)
          ]
        )
+  test ( "null' empty"
+       , null' []
+       , (==)
+       , True
+       )
+  test ( "null' one"
+       , null' [1]
+       , (==)
+       , False
+       )
+  test ( "head' one"
+       , head' [1]
+       , (==)
+       , 1
+       )
+  test ( "tail' three"
+       , tail' [1, 2, 3]
+       , (==)
+       , [2, 3]
+       )
 
 test (d, r, f, e) =
   if f r e

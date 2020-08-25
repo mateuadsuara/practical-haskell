@@ -1,4 +1,4 @@
-module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin) where
+module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail') where
 
 firstOrEmpty :: [[Char]] -> [Char]
 firstOrEmpty lst = if not (null lst) then head lst else "empty"
@@ -22,3 +22,10 @@ maxmin (max, min) list =
                  , if h < min then h else min
                  )
                  (tail list)
+
+null' [] = True
+null' _  = False
+
+head' (x:xs) = x
+
+tail' (x:xs) = xs
