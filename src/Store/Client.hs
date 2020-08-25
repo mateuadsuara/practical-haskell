@@ -13,13 +13,9 @@ data Gender = Male
             | Unknown
             deriving Show
 
-clientName client =
-  case client of
-    GovOrg     name       -> name
-    Company    name _ _ _ -> name
-    Individual person     ->
-      case person of
-        Person firstName lastName gender -> firstName ++ " " ++ lastName
+clientName (GovOrg name) = name
+clientName (Company name _ _ _) = name
+clientName (Individual (Person fN lN _)) = fN ++ " " ++ lN
 
 countGenders :: [Client] -> (Int, Int, Int)
 countGenders [] = (0, 0, 0)
