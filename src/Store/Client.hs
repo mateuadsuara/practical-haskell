@@ -23,13 +23,11 @@ clientName client =
 
 countGenders :: [Client] -> (Int, Int, Int)
 countGenders [] = (0, 0, 0)
-countGenders clients = case client of
-  (GovOrg _ )                      -> countGenders rest
-  (Company _ _ _ _)                -> countGenders rest
-  (Individual (Person _ _ gender)) -> case gender of
-    Male    -> (male + 1, female, unknown)
-    Female  -> (male, female + 1, unknown)
-    Unknown -> (male, female, unknown + 1)
-  where rest = tail clients
-        client = head clients
-        (male, female, unknown) = countGenders rest
+countGenders clients = (m + md, f + fd, u + ud)
+  where (m, f, u) = countGenders $ tail clients
+        (md, fd, ud) = genderDelta $ head clients
+
+genderDelta (Individual (Person _ _ Male)) = (1, 0, 0)
+genderDelta (Individual (Person _ _ Female)) = (0, 1, 0)
+genderDelta (Individual (Person _ _ Unknown)) = (0, 0, 1)
+genderDelta _ = (0, 0, 0)
