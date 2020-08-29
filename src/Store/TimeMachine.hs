@@ -12,8 +12,7 @@ type Manufacturer = String
 
 type Model = Int
 
-data Name = Name String
-          deriving (Show, Eq)
+type Name = String
 
 data TravelDirection = Past
                      | Future

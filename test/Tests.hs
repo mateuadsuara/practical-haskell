@@ -140,9 +140,9 @@ main = do
        "Jack Smith"
 
   test "show time machine"
-       (show $ TimeMachine "Tesla" 3 (Name "The E in SEXY") (Future) (Price 35000.00))
+       (show $ TimeMachine "Tesla" 3 "The E in SEXY" (Future) (Price 35000.00))
        (==)
-       "TimeMachine {manufacturer = \"Tesla\", model = 3, name = Name \"The E in SEXY\", travelDirection = Future, price = Price 35000.0}"
+       "TimeMachine {manufacturer = \"Tesla\", model = 3, name = \"The E in SEXY\", travelDirection = Future, price = Price 35000.0}"
 
   test "countGenders empty"
        (countGenders [])
@@ -183,12 +183,12 @@ main = do
        (1, 1, 1)
 
   test "applyPriceMultiplier 50% to two TimeMachines"
-       (applyPriceMultiplier 0.5 [ TimeMachine "Tesla" 3 (Name "The E in SEXY") (Future) (Price 35000.00)
-                                 , TimeMachine "Tesla" 1 (Name "The mass market") (Future) (Price 15000.00)
+       (applyPriceMultiplier 0.5 [ TimeMachine "Tesla" 3 "The E in SEXY" (Future) (Price 35000.00)
+                                 , TimeMachine "Tesla" 1 "The mass market" (Future) (Price 15000.00)
                                  ])
        (==)
-       [ TimeMachine "Tesla" 3 (Name "The E in SEXY") (Future) (Price 17500.00)
-       , TimeMachine "Tesla" 1 (Name "The mass market") (Future) (Price 7500.00)
+       [ TimeMachine "Tesla" 3 "The E in SEXY" (Future) (Price 17500.00)
+       , TimeMachine "Tesla" 1 "The mass market" (Future) (Price 7500.00)
        ]
 
   test "null' empty"
