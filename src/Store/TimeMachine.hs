@@ -1,3 +1,5 @@
+{-# LANGUAGE NamedFieldPuns #-}
+
 module Store.TimeMachine (TimeMachine (..), Manufacturer (..), Model (..), Name (..), TravelDirection (..), Price (..), applyPriceMultiplier) where
 
 data TimeMachine = TimeMachine { manufacturer :: Manufacturer
@@ -24,5 +26,5 @@ applyPriceMultiplier :: Float -> [TimeMachine] -> [TimeMachine]
 applyPriceMultiplier multiplier timeMachines = map (applyPriceMultiplierForOne multiplier) timeMachines
 
 applyPriceMultiplierForOne :: Float -> TimeMachine -> TimeMachine
-applyPriceMultiplierForOne multiplier t@(TimeMachine { price = p }) =
-  t { price = p * multiplier }
+applyPriceMultiplierForOne multiplier t@(TimeMachine { price }) =
+  t { price = price * multiplier }
