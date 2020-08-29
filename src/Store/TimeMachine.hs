@@ -24,5 +24,5 @@ applyPriceMultiplier :: Float -> [TimeMachine] -> [TimeMachine]
 applyPriceMultiplier multiplier timeMachines = map (applyPriceMultiplierForOne multiplier) timeMachines
 
 applyPriceMultiplierForOne :: Float -> TimeMachine -> TimeMachine
-applyPriceMultiplierForOne multiplier (TimeMachine manufacturer model name travelDirection price) =
-  TimeMachine manufacturer model name travelDirection $ price * multiplier
+applyPriceMultiplierForOne multiplier t@(TimeMachine { price = p }) =
+  t { price = p * multiplier }
