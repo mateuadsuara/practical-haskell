@@ -1,6 +1,11 @@
 module Store.TimeMachine (TimeMachine (..), Manufacturer (..), Model (..), Name (..), TravelDirection (..), Price (..), applyPriceMultiplier) where
 
-data TimeMachine = TimeMachine Manufacturer Model Name TravelDirection Price
+data TimeMachine = TimeMachine { manufacturer :: Manufacturer
+                               , model :: Model
+                               , name :: Name
+                               , travelDirection :: TravelDirection
+                               , price :: Price
+                               }
                  deriving (Show, Eq)
 
 data Manufacturer = Manufacturer String

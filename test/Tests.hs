@@ -142,7 +142,7 @@ main = do
   test "show time machine"
        (show $ TimeMachine (Manufacturer "Tesla") (Model 3) (Name "The E in SEXY") (Future) (Price 35000.00))
        (==)
-       "TimeMachine (Manufacturer \"Tesla\") (Model 3) (Name \"The E in SEXY\") Future (Price 35000.0)"
+       "TimeMachine {manufacturer = Manufacturer \"Tesla\", model = Model 3, name = Name \"The E in SEXY\", travelDirection = Future, price = Price 35000.0}"
 
   test "countGenders empty"
        (countGenders [])
