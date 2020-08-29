@@ -8,8 +8,7 @@ data TimeMachine = TimeMachine { manufacturer :: Manufacturer
                                }
                  deriving (Show, Eq)
 
-data Manufacturer = Manufacturer String
-                  deriving (Show, Eq)
+type Manufacturer = String
 
 data Model = Model Integer
            deriving (Show, Eq)
