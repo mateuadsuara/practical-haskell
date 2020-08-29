@@ -10,8 +10,7 @@ data TimeMachine = TimeMachine { manufacturer :: Manufacturer
 
 type Manufacturer = String
 
-data Model = Model Integer
-           deriving (Show, Eq)
+type Model = Int
 
 data Name = Name String
           deriving (Show, Eq)
