@@ -1,4 +1,4 @@
-module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann) where
+module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann, unzip') where
 
 firstOrEmpty :: [[Char]] -> [Char]
 firstOrEmpty lst = if not (null lst) then head lst else "empty"
@@ -33,3 +33,8 @@ tail' (x:xs) = xs
 ackermann 0 n                  = n + 1
 ackermann m 0 | m > 0          = ackermann (m - 1) 1
 ackermann m n | m > 0 && n > 0 = ackermann (m - 1) (ackermann m (n - 1))
+
+unzip' :: [(a, b)] -> ([a], [b])
+unzip' [] = ([], [])
+unzip' ((a, b):xs) = (a : as, b : bs)
+  where (as, bs) = unzip' xs

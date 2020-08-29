@@ -256,6 +256,21 @@ main = do
        (==)
        7
 
+  test "unzip' empty"
+       (unzip' [] :: ([Int], [String]))
+       (==)
+       ([], [])
+
+  test "unzip' one"
+       (unzip' [(1, "a")])
+       (==)
+       ([1], ["a"])
+
+  test "unzip' two"
+       (unzip' [(1, "a"), (2, "b")])
+       (==)
+       ([1, 2], ["a", "b"])
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
