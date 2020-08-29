@@ -8,7 +8,7 @@ list1 +++ list2 =
   then list2
   else (head list1) : (tail list1) +++ list2
 
-reverse2 :: [[Char]] -> [[Char]]
+reverse2 :: [a] -> [a]
 reverse2 list =
   if null list
   then []

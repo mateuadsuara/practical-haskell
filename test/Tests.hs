@@ -70,7 +70,7 @@ main = do
        ["abc", "de"]
 
   test "reverse2 empty"
-       (reverse2 [])
+       (reverse2 [] :: [String])
        (==)
        []
 
