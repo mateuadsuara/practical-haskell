@@ -1,4 +1,4 @@
-module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail') where
+module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann) where
 
 firstOrEmpty :: [[Char]] -> [Char]
 firstOrEmpty lst = if not (null lst) then head lst else "empty"
@@ -29,3 +29,7 @@ null' _  = False
 head' (x:xs) = x
 
 tail' (x:xs) = xs
+
+ackermann 0 n                  = n + 1
+ackermann m 0 | m > 0          = ackermann (m - 1) 1
+ackermann m n | m > 0 && n > 0 = ackermann (m - 1) (ackermann m (n - 1))

@@ -211,6 +211,51 @@ main = do
        (==)
        [2, 3]
 
+  test "ackermann 0 0"
+       (ackermann 0 0)
+       (==)
+       1
+
+  test "ackermann 0 1"
+       (ackermann 0 1)
+       (==)
+       2
+
+  test "ackermann 1 0"
+       (ackermann 1 0)
+       (==)
+       2
+
+  test "ackermann 1 1"
+       (ackermann 1 1)
+       (==)
+       3
+
+  test "ackermann 0 2"
+       (ackermann 0 2)
+       (==)
+       3
+
+  test "ackermann 2 0"
+       (ackermann 2 0)
+       (==)
+       3
+
+  test "ackermann 1 2"
+       (ackermann 1 2)
+       (==)
+       4
+
+  test "ackermann 2 1"
+       (ackermann 2 1)
+       (==)
+       5
+
+  test "ackermann 2 2"
+       (ackermann 2 2)
+       (==)
+       7
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
