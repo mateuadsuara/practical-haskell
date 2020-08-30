@@ -10,6 +10,7 @@ module Chapter2.SimpleFunctions
   , unzip'
   , filterNumber
   , filterOnes
+  , filterNot
   ) where
 
 firstOrEmpty :: [[Char]] -> [Char]
@@ -54,3 +55,5 @@ unzip' ((a, b):xs) = (a : as, b : bs)
 filterNumber x = filter $ \n -> n == x
 
 filterOnes = filterNumber 1
+
+filterNot f = filter $ \x -> not (f x)

@@ -306,6 +306,11 @@ main = do
        (==)
        [5, 5]
 
+  test "filterNot"
+       (filterNot (\x -> x == 1) [1, 2, 3])
+       (==)
+       [2, 3]
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
