@@ -1,4 +1,15 @@
-module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann, unzip', filterOnes) where
+module Chapter2.SimpleFunctions
+  ( firstOrEmpty
+  , (+++)
+  , reverse2
+  , maxmin
+  , null'
+  , head'
+  , tail'
+  , ackermann
+  , unzip'
+  , filterOnes
+  ) where
 
 firstOrEmpty :: [[Char]] -> [Char]
 firstOrEmpty lst = if not (null lst) then head lst else "empty"

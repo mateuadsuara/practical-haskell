@@ -1,6 +1,14 @@
 {-# LANGUAGE RecordWildCards #-}
 
-module Store.TimeMachine (TimeMachine (..), Manufacturer (..), Model (..), Name (..), TravelDirection (..), Price (..), applyPriceMultiplier) where
+module Store.TimeMachine
+  ( TimeMachine (..)
+  , Manufacturer (..)
+  , Model (..)
+  , Name (..)
+  , TravelDirection (..)
+  , Price (..)
+  , applyPriceMultiplier
+  ) where
 
 data TimeMachine = TimeMachine { manufacturer :: Manufacturer
                                , model :: Model

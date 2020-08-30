@@ -1,4 +1,10 @@
-module Store.Client (Client (..), Person (..), Gender (..), clientName, countGenders) where
+module Store.Client
+  ( Client (..)
+  , Person (..)
+  , Gender (..)
+  , clientName
+  , countGenders
+  ) where
 
 data Client = GovOrg     String
             | Company    String Integer Person String
