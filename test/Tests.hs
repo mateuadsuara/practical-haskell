@@ -311,6 +311,14 @@ main = do
        (==)
        [2, 3]
 
+  test "filterGovOrgs"
+       (filterGovOrgs [ (Company "A" 1 (Person "A" "B" Male) "B")
+                      , (GovOrg "A")
+                      , (Individual (Person "A" "B" Unknown))
+                      ])
+       (==)
+       [ (GovOrg "A") ]
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
