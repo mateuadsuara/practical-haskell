@@ -9,6 +9,7 @@ module Chapter2.SimpleFunctions
   , ackermann
   , unzip'
   , filterOnes
+  , filterNumber
   ) where
 
 firstOrEmpty :: [[Char]] -> [Char]
@@ -51,3 +52,5 @@ unzip' ((a, b):xs) = (a : as, b : bs)
   where (as, bs) = unzip' xs
 
 filterOnes = filter $ \n -> n == 1
+
+filterNumber x = filter $ \n -> n == x

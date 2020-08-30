@@ -301,6 +301,11 @@ main = do
        (==)
        [1, 1]
 
+  test "filterNumber"
+       (filterNumber 5 [1, 2, 3, 4, 5, 6, 7, 8, 1, 3, 5, 7])
+       (==)
+       [5, 5]
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
