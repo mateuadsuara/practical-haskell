@@ -8,8 +8,8 @@ module Chapter2.SimpleFunctions
   , tail'
   , ackermann
   , unzip'
-  , filterOnes
   , filterNumber
+  , filterOnes
   ) where
 
 firstOrEmpty :: [[Char]] -> [Char]
@@ -51,6 +51,6 @@ unzip' [] = ([], [])
 unzip' ((a, b):xs) = (a : as, b : bs)
   where (as, bs) = unzip' xs
 
-filterOnes = filter $ \n -> n == 1
-
 filterNumber x = filter $ \n -> n == x
+
+filterOnes = filterNumber 1
