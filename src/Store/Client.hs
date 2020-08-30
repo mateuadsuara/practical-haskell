@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 module Store.Client
   ( Client (..)
   , Person (..)
@@ -35,6 +37,5 @@ genderDelta (Individual (Person _ _ Female)) = (0, 1, 0)
 genderDelta (Individual (Person _ _ Unknown)) = (0, 0, 1)
 genderDelta _ = (0, 0, 0)
 
-filterGovOrgs = filter (\c -> case c of
-                               (GovOrg _) -> True
-                               _          -> False)
+filterGovOrgs = filter (\case (GovOrg _) -> True
+                              _          -> False)
