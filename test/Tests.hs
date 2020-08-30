@@ -296,6 +296,11 @@ main = do
        (==)
        ([1, 2], ["a", "b"])
 
+  test "filterOnes"
+       (filterOnes [1, 4, 2, 1, 2, 3, 6])
+       (==)
+       [1, 1]
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

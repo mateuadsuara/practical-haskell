@@ -1,4 +1,4 @@
-module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann, unzip') where
+module Chapter2.SimpleFunctions (firstOrEmpty, (+++), reverse2, maxmin, null', head', tail', ackermann, unzip', filterOnes) where
 
 firstOrEmpty :: [[Char]] -> [Char]
 firstOrEmpty lst = if not (null lst) then head lst else "empty"
@@ -38,3 +38,5 @@ unzip' :: [(a, b)] -> ([a], [b])
 unzip' [] = ([], [])
 unzip' ((a, b):xs) = (a : as, b : bs)
   where (as, bs) = unzip' xs
+
+filterOnes = filter $ \n -> n == 1
