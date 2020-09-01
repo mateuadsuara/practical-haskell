@@ -51,11 +51,8 @@ unzip' [] = ([], [])
 unzip' ((a, b):xs) = (a : as, b : bs)
   where (as, bs) = unzip' xs
 
--- filterNumber x = filter $ \n -> n == x
 filterNumber = filter . (==)
 
 filterOnes = filterNumber 1
 
--- filterNot f = filter $ \x -> not (f x)
--- filterNot f = filter $ not . f
 filterNot = filter . (not .)
