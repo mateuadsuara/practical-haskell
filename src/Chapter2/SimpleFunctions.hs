@@ -22,10 +22,9 @@ list1 +++ list2 =
   else (head list1) : (tail list1) +++ list2
 
 reverse2 :: [a] -> [a]
-reverse2 list =
-  if null list
-  then []
-  else reverse2 (tail list) +++ [head list]
+reverse2 [] = []
+reverse2 (x:xs) =
+  reverse2 xs +++ [x]
 
 maxmin (max, min) list =
   if null list
