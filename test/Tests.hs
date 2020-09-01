@@ -319,6 +319,11 @@ main = do
        (==)
        [ (GovOrg "A") ]
 
+  test "filter'"
+       (filter' (\x -> 0 == (mod x 2)) [1, 2, 3, 4, 5, 6])
+       (==)
+       [2, 4, 6]
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

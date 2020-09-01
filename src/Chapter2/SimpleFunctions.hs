@@ -11,6 +11,7 @@ module Chapter2.SimpleFunctions
   , filterNumber
   , filterOnes
   , filterNot
+  , filter'
   ) where
 
 firstOrEmpty :: [[Char]] -> [Char]
@@ -56,3 +57,8 @@ filterNumber = filter . (==)
 filterOnes = filterNumber 1
 
 filterNot = filter . (not .)
+
+filter' f [] = []
+filter' f (x:xs) = if f x
+                   then x : (filter f xs )
+                   else (filter f xs)
