@@ -3,6 +3,7 @@ module Chapter3
   , foldr'
   , foldl'
   , product'
+  , all'
   ) where
 
 filter' :: (a -> Bool) -> [a] -> [a]
@@ -22,3 +23,7 @@ foldl' f init (x:xs) = f (foldl' f init xs) x
 product' :: [Int] -> Int
 product' [] = 1
 product' (x:xs) = x * (product' xs)
+
+all' :: [Bool] -> Bool
+all' [] = True
+all' (x:xs) = x && all' xs

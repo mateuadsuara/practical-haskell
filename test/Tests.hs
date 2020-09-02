@@ -364,6 +364,31 @@ main = do
        (==)
        (GovOrg "ABC")
 
+  test "all' empty"
+       (all' [])
+       (==)
+       (True)
+
+  test "all' one false"
+       (all' [False])
+       (==)
+       (False)
+
+  test "all' one true"
+       (all' [True])
+       (==)
+       (True)
+
+  test "all' many true"
+       (all' [True, True, True, True, True])
+       (==)
+       (True)
+
+  test "all' almost all true"
+       (all' [True, True, True, False, True])
+       (==)
+       (False)
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
