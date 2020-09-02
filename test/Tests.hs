@@ -335,6 +335,21 @@ main = do
        (==)
        10
 
+  test "product' empty"
+       (product' [])
+       (==)
+       1
+
+  test "product' one"
+       (product' [7])
+       (==)
+       7
+
+  test "product' many"
+       (product' [1, 2, 3, 4, 5])
+       (==)
+       120
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

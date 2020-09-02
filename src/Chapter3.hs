@@ -2,6 +2,7 @@ module Chapter3
   ( filter'
   , foldr'
   , foldl'
+  , product'
   ) where
 
 filter' :: (a -> Bool) -> [a] -> [a]
@@ -17,3 +18,7 @@ foldr' f init (x:xs) = f x (foldr' f init xs)
 foldl' :: (b -> a -> b) -> b -> [a] -> b
 foldl' f init [] = init
 foldl' f init (x:xs) = f (foldl' f init xs) x
+
+product' :: [Int] -> Int
+product' [] = 1
+product' (x:xs) = x * (product' xs)
