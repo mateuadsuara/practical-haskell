@@ -9,7 +9,7 @@ module Chapter3
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' f [] = []
 filter' f (x:xs) = if f x
-                   then x : (filter f xs )
+                   then x : (filter f xs)
                    else (filter f xs)
 
 foldr' :: (a -> b -> b) -> b -> [a] -> b
