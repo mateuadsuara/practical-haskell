@@ -350,11 +350,16 @@ main = do
        (==)
        120
 
+  test "minimumClient empty"
+       (minimumClient [])
+       (==)
+       (Nothing)
+
   test "minimumClient one"
        (minimumClient [ (Individual (Person "A" "B" Unknown))
                       ])
        (==)
-       (Individual (Person "A" "B" Unknown))
+       (Just (Individual (Person "A" "B" Unknown)))
 
   test "minimumClient three"
        (minimumClient [ (Company "ABCDE" 1 (Person "A" "B" Male) "B")
@@ -362,7 +367,7 @@ main = do
                       , (Individual (Person "A" "BC" Unknown))
                       ])
        (==)
-       (GovOrg "ABC")
+       (Just (GovOrg "ABC"))
 
   test "all' empty"
        (all' [])
