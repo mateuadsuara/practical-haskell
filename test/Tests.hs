@@ -350,6 +350,20 @@ main = do
        (==)
        120
 
+  test "minimumClient one"
+       (minimumClient [ (Individual (Person "A" "B" Unknown))
+                      ])
+       (==)
+       (Individual (Person "A" "B" Unknown))
+
+  test "minimumClient three"
+       (minimumClient [ (Company "ABCDE" 1 (Person "A" "B" Male) "B")
+                      , (GovOrg "ABC")
+                      , (Individual (Person "A" "BC" Unknown))
+                      ])
+       (==)
+       (GovOrg "ABC")
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

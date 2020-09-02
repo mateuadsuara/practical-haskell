@@ -7,6 +7,7 @@ module Store.Client
   , clientName
   , countGenders
   , filterGovOrgs
+  , minimumClient
   ) where
 
 data Client = GovOrg     String
@@ -39,3 +40,10 @@ genderDelta _ = (0, 0, 0)
 
 filterGovOrgs = filter (\case (GovOrg _) -> True
                               _          -> False)
+
+minimumClient [x] = x
+minimumClient (x:xs) =
+  if length (clientName x) < length (clientName shortest)
+  then x
+  else shortest
+  where shortest = minimumClient xs
