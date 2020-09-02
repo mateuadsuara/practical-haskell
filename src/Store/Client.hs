@@ -10,6 +10,8 @@ module Store.Client
   , minimumClient
   ) where
 
+import Data.Maybe (fromMaybe)
+
 data Client = GovOrg     String
             | Company    String Integer Person String
             | Individual Person
@@ -43,8 +45,8 @@ filterGovOrgs = filter (\case (GovOrg _) -> True
 
 minimumClient :: [Client] -> Maybe Client
 minimumClient = foldr fn Nothing
-  where fn x Nothing            = Just x
-        fn x sc@(Just shortest) =
+  where fn x maybeShortest =
           if length (clientName x) < length (clientName shortest)
           then Just x
-          else sc
+          else Just shortest
+          where shortest = fromMaybe x maybeShortest
