@@ -21,6 +21,7 @@ library
                      , Store.TimeMachine
                      , Chapter2
                      , Chapter2.SimpleFunctions
+                     , Chapter3
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.13 && <4.14

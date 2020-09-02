@@ -6,6 +6,7 @@ import Chapter2
 import Chapter2.SimpleFunctions
 import Store.Client
 import Store.TimeMachine
+import Chapter3
 
 main :: IO ()
 main = do
