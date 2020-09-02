@@ -330,6 +330,11 @@ main = do
        (==)
        10
 
+  test "foldl'"
+       (foldr' (+) 0 [1, 2, 3, 4])
+       (==)
+       10
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e
