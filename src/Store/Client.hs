@@ -44,8 +44,8 @@ filterGovOrgs = filter (\case (GovOrg _) -> True
                               _          -> False)
 
 minimumClient :: [Client] -> Maybe Client
-minimumClient = foldr fn Nothing
-  where fn x maybeShortest =
+minimumClient = foldl fn Nothing
+  where fn maybeShortest x =
           if length (clientName x) < length (clientName shortest)
           then Just x
           else Just shortest
