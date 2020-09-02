@@ -394,6 +394,21 @@ main = do
        (==)
        (False)
 
+  test "minimumBy empty"
+       (minimumBy (\x -> -x) [])
+       (==)
+       (Nothing)
+
+  test "minimumBy one"
+       (minimumBy (\x -> -x) [1])
+       (==)
+       (Just 1)
+
+  test "minimumBy three"
+       (minimumBy (\x -> -x) [1, 2, 3])
+       (==)
+       (Just 3)
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

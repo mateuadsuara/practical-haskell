@@ -4,7 +4,10 @@ module Chapter3
   , foldl'
   , product'
   , all'
+  , minimumBy
   ) where
+
+import Data.Maybe (fromMaybe)
 
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' f [] = []
@@ -25,3 +28,11 @@ product' = foldl' (*) 1
 
 all' :: [Bool] -> Bool
 all' = foldl' (&&) True
+
+minimumBy :: (Ord b) => (a -> b) -> [a] -> Maybe a
+minimumBy fn lst = foldr' aggFn Nothing lst
+  where aggFn x maybeMinimum =
+          let minimum = fromMaybe x maybeMinimum in
+          if (fn x) < (fn minimum)
+          then Just x
+          else Just minimum
