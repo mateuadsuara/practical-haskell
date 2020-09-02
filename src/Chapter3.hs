@@ -21,8 +21,7 @@ foldl' f init [] = init
 foldl' f init (x:xs) = f (foldl' f init xs) x
 
 product' :: [Int] -> Int
-product' [] = 1
-product' (x:xs) = x * (product' xs)
+product' = foldr' (*) 1
 
 all' :: [Bool] -> Bool
 all' [] = True
