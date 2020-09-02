@@ -24,5 +24,4 @@ product' :: [Int] -> Int
 product' = foldr' (*) 1
 
 all' :: [Bool] -> Bool
-all' [] = True
-all' (x:xs) = x && all' xs
+all' = foldr' (&&) True
