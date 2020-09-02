@@ -41,10 +41,10 @@ genderDelta _ = (0, 0, 0)
 filterGovOrgs = filter (\case (GovOrg _) -> True
                               _          -> False)
 
-minimumClient []     = Nothing
-minimumClient [x]    = Just x
-minimumClient (x:xs) =
-  if length (clientName x) < length (clientName shortest)
-  then Just x
-  else sc
-  where sc@(Just shortest) = minimumClient xs
+minimumClient :: [Client] -> Maybe Client
+minimumClient = foldr fn Nothing
+  where fn x Nothing            = Just x
+        fn x sc@(Just shortest) =
+          if length (clientName x) < length (clientName shortest)
+          then Just x
+          else sc
