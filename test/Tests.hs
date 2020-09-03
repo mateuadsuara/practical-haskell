@@ -409,6 +409,26 @@ main = do
        (==)
        (Just 3)
 
+  test "elem' empty"
+       (elem' 1 [])
+       (==)
+       False
+
+  test "elem' one match"
+       (elem' 1 [1])
+       (==)
+       True
+
+  test "elem' one"
+       (elem' 2 [1])
+       (==)
+       False
+
+  test "elem' many"
+       (elem' 4 [1, 2, 3, 4, 5])
+       (==)
+       True
+
 test :: Show a => String -> a -> (a -> b -> Bool) -> b -> IO ()
 test d r f e =
   if f r e

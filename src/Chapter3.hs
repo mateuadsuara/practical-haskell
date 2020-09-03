@@ -5,6 +5,7 @@ module Chapter3
   , product'
   , all'
   , minimumBy
+  , elem'
   ) where
 
 import Data.Maybe (fromMaybe)
@@ -36,3 +37,9 @@ minimumBy fn lst = foldr' aggFn Nothing lst
           if (fn x) < (fn minimum)
           then Just x
           else Just minimum
+
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' _ []     = False
+elem' e (x:xs) = if e == x
+                 then True
+                 else elem' e xs
