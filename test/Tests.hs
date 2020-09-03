@@ -353,7 +353,7 @@ main = do
   test "minimumClient empty"
        (minimumClient [])
        (==)
-       (Nothing)
+       Nothing
 
   test "minimumClient one"
        (minimumClient [ (Individual (Person "A" "B" Unknown))
@@ -372,32 +372,32 @@ main = do
   test "all' empty"
        (all' [])
        (==)
-       (True)
+       True
 
   test "all' one false"
        (all' [False])
        (==)
-       (False)
+       False
 
   test "all' one true"
        (all' [True])
        (==)
-       (True)
+       True
 
   test "all' many true"
        (all' [True, True, True, True, True])
        (==)
-       (True)
+       True
 
   test "all' almost all true"
        (all' [True, True, True, False, True])
        (==)
-       (False)
+       False
 
   test "minimumBy empty"
        (minimumBy (\x -> -x) [])
        (==)
-       (Nothing)
+       Nothing
 
   test "minimumBy one"
        (minimumBy (\x -> -x) [1])
