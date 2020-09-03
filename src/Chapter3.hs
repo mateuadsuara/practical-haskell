@@ -9,6 +9,7 @@ module Chapter3
   ) where
 
 import Data.Maybe (fromMaybe)
+import Data.List (find)
 
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' f [] = []
@@ -39,7 +40,4 @@ minimumBy fn lst = foldr' aggFn Nothing lst
           else Just minimum
 
 elem' :: (Eq a) => a -> [a] -> Bool
-elem' _ []     = False
-elem' e (x:xs) = if e == x
-                 then True
-                 else elem' e xs
+elem' e l = find (== e) l /= Nothing
