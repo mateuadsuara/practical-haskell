@@ -43,7 +43,7 @@ genderDelta _ = (0, 0, 0)
 filterGovOrgs = filter (\case (GovOrg _) -> True
                               _          -> False)
 
-minimumClient :: [Client] -> Maybe Client -- Without type definition does not compile
+minimumClient :: [Client] -> Maybe Client
 minimumClient = foldl' fn Nothing
   where fn Nothing           y = Just y
         fn x@(Just shortest) y =
