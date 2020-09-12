@@ -43,4 +43,5 @@ test-suite chapter2-test
   hs-source-dirs:      test
   main-is:             Tests.hs
   build-depends:       base >=4.13 && <4.14
+                     , hspec
                      , practical-haskell
